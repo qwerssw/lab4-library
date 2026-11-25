@@ -1,6 +1,7 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue; // <-- ДОБАВЛЕНА ЭТА СТРОКА
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -22,7 +23,7 @@ public class LibraryServiceTest {
         book = new Book(1, "Война и мир", "Л. Н. Толстой");
         library.addBook(book);
     }
-//cp -r ~/Documents/4\ курс/Java/lab3/* ~/.jenkins/workspace/Lab3-Library/
+
     @Test
     public void testIssueBookSuccess() {
         Reader reader = new Reader(1, "Иван");
@@ -50,5 +51,14 @@ public class LibraryServiceTest {
                 () -> library.issueBook(1, reader2));
                 
         assertEquals("Книга уже на руках: Война и мир", exception.getMessage());
+    }
+
+   
+    @Test
+    public void testReturnBookSuccess() {
+        Reader reader = new Reader(1, "Иван");
+        library.issueBook(1, reader); // Выдали книгу
+        library.returnBook(1);        // Вернули книгу
+        assertFalse(book.isTaken());  // Проверяем, что книга снова свободна
     }
 }

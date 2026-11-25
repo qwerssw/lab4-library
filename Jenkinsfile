@@ -16,6 +16,7 @@ pipeline {
             }
         }
         
+        
         stage('Show Dependencies') {
             steps {
                 echo 'Вывод дерева зависимостей Maven...'

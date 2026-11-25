@@ -58,6 +58,6 @@ public class LibraryServiceTest {
         Reader reader = new Reader(1, "Полина");
         library.issueBook(1, reader); 
         library.returnBook(1);        
-        assertTrue(book.isTaken());  
+        assertFalse(book.isTaken());  
     }
 }

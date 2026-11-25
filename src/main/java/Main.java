@@ -16,8 +16,7 @@ public class Main {
 
         Reader reader = new Reader(1, "Иван");
 
-        System.out.println("Название книги: " + StringUtils.capitalize(book1.getTitle()));
-
+System.out.println("Вывод: Название книги: " + StringUtils.capitalize(book1.getTitle()));
         library.issueBook(1, reader); 
         
         try {

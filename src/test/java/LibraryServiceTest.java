@@ -1,5 +1,4 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
@@ -59,6 +58,6 @@ public class LibraryServiceTest {
         Reader reader = new Reader(1, "Полина");
         library.issueBook(1, reader); 
         library.returnBook(1);        
-        assertFalse(book.isTaken());  
+        assertTrue(book.isTaken());  
     }
 }

@@ -9,13 +9,20 @@ pipeline {
             }
         }
         
+        // НОВЫЙ ЭТАП (ЛР №5)
+        stage('Static Analysis') {
+            steps {
+                echo 'Запуск статического анализа Checkstyle...'
+                sh '/opt/homebrew/bin/mvn checkstyle:check'
+            }
+        }
+        
         stage('Test') {
             steps {
                 echo 'Запуск тестов...'
                 sh '/opt/homebrew/bin/mvn test'
             }
         }
-        
         
         stage('Show Dependencies') {
             steps {
